@@ -22,13 +22,8 @@ object BSTreeSum extends App {
 
   val node = sumNode(tree)
 
-  printNode(node)
+  BSTreeNode.printNode(node)
 
-  def printNode(node: Option[BSTreeNode], prefix : String = ""): Unit = if (node.isDefined) {
-    println(prefix + node.value)
-    printNode(node.left, prefix + " ")
-    printNode(node.right, prefix + " ")
-  }
 
   def sumNode(node: Option[BSTreeNode], sum: Int = 0): Option[BSTreeNode] =
     if (node.isEmpty) {
