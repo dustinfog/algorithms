@@ -13,8 +13,9 @@
   * 则打印出两条路径：10, 12和10, 5, 7。
   */
 object BSTreeSum {
+  val Goal = 22
+
   def main(args: Array[String]): Unit = {
-    val Goal = 22
 
     val tree = BSTreeNode(10,
       BSTreeNode(5, 4, 7),
@@ -33,11 +34,9 @@ object BSTreeSum {
       val value = node.value
       val newSum = sum + value
 
-      if (newSum > Goal) {
-        None
-      } else if (newSum == Goal) {
-        value
-      } else {
+      if (newSum == Goal && node.left.isEmpty && node.right.isEmpty) {
+        node
+      } else if (newSum < Goal) {
         var ret: Option[BSTreeNode] = None
         sumNode(node.left, newSum).foreach(node => {
           ret = Some(BSTreeNode(value))
@@ -50,6 +49,8 @@ object BSTreeSum {
         })
 
         ret
+      } else {
+        None
       }
     }
 }
