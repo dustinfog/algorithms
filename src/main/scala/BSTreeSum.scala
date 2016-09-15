@@ -12,17 +12,19 @@
   * 4  7
   * 则打印出两条路径：10, 12和10, 5, 7。
   */
-object BSTreeSum extends App {
-  val Goal = 22
+object BSTreeSum {
+  def main(args: Array[String]): Unit = {
+    val Goal = 22
 
-  val tree = BSTreeNode(10,
-    BSTreeNode(5, 4, 7),
-    12
-  )
+    val tree = BSTreeNode(10,
+      BSTreeNode(5, 4, 7),
+      12
+    )
 
-  val node = sumNode(tree)
+    val node = sumNode(tree)
 
-  BSTreeNode.printNode(node)
+    BSTreeNode.printNode(node)
+  }
 
   def sumNode(node: Option[BSTreeNode], sum: Int = 0): Option[BSTreeNode] =
     if (node.isEmpty) {

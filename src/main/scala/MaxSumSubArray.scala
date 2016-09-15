@@ -9,10 +9,11 @@
   * 例如输入的数组为1, -2, 3, 10, -4, 7, 2, -5，和最大的子数组为3, 10, -4, 7, 2，
   * 因此输出为该子数组的和18。
   */
-object MaxSumSubArray extends App {
-  var array : Array[Int] = Array(1, -2, 3, 10, -4, 7, 2, -5)
-
-  println(findMaxSum(array))
+object MaxSumSubArray {
+  def main(args: Array[String]): Unit = {
+    val array : Array[Int] = Array(1, -2, 3, 10, -4, 7, 2, -5)
+    println(findMaxSum(array))
+  }
 
   def findMaxSum(array: Array[Int]): (Int, Int, Int) = {
     var maxSum : Int = 0
