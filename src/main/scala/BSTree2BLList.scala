@@ -3,12 +3,8 @@
   */
 
 object BSTree2BLList {
-  implicit def node2Option(node : BSTreeNode) : Option[BSTreeNode] = Some(node)
-  implicit def Int2Node(i: Int): Option[BSTreeNode] = BSTreeNode(i)
-  implicit def Option2Node(option: Option[BSTreeNode]) : BSTreeNode = option.get
 
   def main(args: Array[String]): Unit = {
-
     //     10
     //    /   \
     //   6    14
@@ -49,6 +45,6 @@ object BSTree2BLList {
   }
 }
 
-case class BSTreeNode(var value: Int, var left: Option[BSTreeNode] = None, var right: Option[BSTreeNode] = None)
+
 
 
