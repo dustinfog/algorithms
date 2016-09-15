@@ -29,6 +29,12 @@ object BSTreeSum {
     printSumNode(tree, Nil)
   }
 
+  /**
+    * 只是打印
+    * @param node
+    * @param path
+    * @param sum
+    */
   def printSumNode(node : Option[BSTreeNode], path : List[Int], sum : Int = 0): Unit = if (node.isDefined) {
     val value = node.value
     val newSum = sum + node.value
@@ -46,6 +52,12 @@ object BSTreeSum {
   }
 
 
+  /**
+    * 保存整个符合条件路径所组成的子树
+    * @param node
+    * @param sum
+    * @return
+    */
   def sumNode(node: Option[BSTreeNode], sum: Int = 0): Option[BSTreeNode] = if (node.isEmpty) {
     None
   } else {
