@@ -24,7 +24,6 @@ object BSTreeSum extends App {
 
   BSTreeNode.printNode(node)
 
-
   def sumNode(node: Option[BSTreeNode], sum: Int = 0): Option[BSTreeNode] =
     if (node.isEmpty) {
       None
