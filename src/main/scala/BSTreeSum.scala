@@ -22,10 +22,29 @@ object BSTreeSum {
       12
     )
 
-    val node = sumNode(tree)
+    //val node = sumNode(tree)
 
-    BSTreeNode.printNode(node)
+    //BSTreeNode.printNode(node)
+
+    printSumNode(tree, Nil)
   }
+
+  def printSumNode(node : Option[BSTreeNode], path : List[Int], sum : Int = 0): Unit = if (node.isDefined) {
+    val value = node.value
+    val newSum = sum + node.value
+    val newPath = value :: path
+
+    if (newSum == Goal && node.left.isEmpty && node.right.isEmpty) {
+      for(i <- newPath.reverse) {
+        print(i + " ")
+      }
+      println
+    } else if (newSum < Goal) {
+      printSumNode(node.left, newPath, newSum)
+      printSumNode(node.right, newPath, newSum)
+    }
+  }
+
 
   def sumNode(node: Option[BSTreeNode], sum: Int = 0): Option[BSTreeNode] = if (node.isEmpty) {
     None
