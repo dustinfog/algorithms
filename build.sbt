@@ -1,4 +1,4 @@
-name := "agrithems"
+name := "algorithms"
 
 version := "1.0"
 
