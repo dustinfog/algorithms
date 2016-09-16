@@ -11,12 +11,10 @@ object MinKNumbers {
     val numbers = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)
     shuffle(numbers)
     findK(numbers, 0, numbers.length, 6)
-
+    printArray(numbers, 0, 6)
   }
 
   def findK(numbers : Array[Int], from : Int, to : Int, k : Int) : Unit = if (from != to) {
-    println("=======")
-    printArray(numbers)
     val ref = numbers(from)
     var largerIndex = to - 1
     var i : Int = from + 1
@@ -30,9 +28,6 @@ object MinKNumbers {
         largerIndex = largerIndex - 1
       }
     }
-
-    printArray(numbers)
-    println(from, to, largerIndex)
 
     if (largerIndex > k) {
       findK(numbers, from, largerIndex, k)
@@ -48,10 +43,17 @@ object MinKNumbers {
     }
   }
 
-  def printArray[T](array:Array[T]) : Unit = {
-    for (i <- array ) {
-      print(i)
-      print(',')
+  def printArray[T](array:Array[T], from : Int = 0, to : Int = -1) : Unit = {
+    var target = to
+    if (to < 0) {
+      target = array.length
+    }
+
+    for (i <- from until target) {
+      print(array(i))
+      if (i != target - 1) {
+        print(',')
+      }
     }
     println
   }
