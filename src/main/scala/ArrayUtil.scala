@@ -5,7 +5,7 @@ import scala.util.Random
   */
 object ArrayUtil {
 
-  def shuffle(numbers : Array[Int]) : Unit = {
+  def shuffle[T](numbers : Array[T]) : Unit = {
     val count = numbers.length
     for (i <- numbers.indices) {
       exchange(numbers, i, Random.nextInt(count))
@@ -27,9 +27,25 @@ object ArrayUtil {
     println
   }
 
-  def exchange(numbers : Array[Int], from : Int, to : Int): Unit = {
+  def exchange[T](numbers : Array[T], from : Int, to : Int): Unit = {
     val value = numbers(from)
     numbers(from) = numbers(to)
     numbers(to) = value
+  }
+
+  def reverse[T](array : Array[T], from : Int, to : Int): Unit = {
+   for (i <- from until to / 2) {
+     exchange(array, i, to - i -1)
+   }
+  }
+
+  def reverse[T](array: Array[T]): Unit = {
+    reverse(array, 0, array.length)
+  }
+
+  def main(args: Array[String]): Unit = {
+    val array : Array[Int] = Array(1, 2, 3, 4)
+    reverse(array)
+    printArray(array)
   }
 }
