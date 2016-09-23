@@ -20,7 +20,6 @@ object IntersectCheck {
       println("1. intersected")
     }
 
-
   }
 
   def findCircleStart(h : SLLNode) : SLLNode = {
@@ -37,4 +36,3 @@ object IntersectCheck {
   }
 }
 
-case class SLLNode(value: Int, var next : SLLNode = null)
