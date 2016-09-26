@@ -11,8 +11,8 @@ object IntersectCheck {
   def main(args: Array[String]): Unit = {
     val intersect = SLLNode(2, SLLNode(3, SLLNode(3)))
 
-    val h1 : SLLNode = SLLNode(1, intersect)
-    val h2 : SLLNode = SLLNode(5, SLLNode(6, intersect))
+    val h1 : SLLNode[Int] = SLLNode(1, intersect)
+    val h2 : SLLNode[Int] = SLLNode(5, SLLNode(6, intersect))
 
     val t1 = findTail(h1)
     val t2 = findTail(h2)
@@ -22,12 +22,12 @@ object IntersectCheck {
 
   }
 
-  def findCircleStart(h : SLLNode) : SLLNode = {
+  def findCircleStart(h : SLLNode[Int]) : SLLNode[Int] = {
     //@todo need implements
     null
   }
 
-  def findTail(h : SLLNode): SLLNode = {
+  def findTail(h : SLLNode[Int]): SLLNode[Int] = {
     var node = h
     while(node.next != null) {
       node = node.next

@@ -1,4 +1,4 @@
 /**
   * Created by panzd on 9/23/16.
   */
-case class SLLNode(value: Int, var next : SLLNode = null)
+case class SLLNode[T](value: T, var next : SLLNode[T] = null)

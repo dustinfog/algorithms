@@ -17,10 +17,10 @@ object ReciprocalElement {
   }
 
 
-  def seek(list : SLLNode, k : Int): SLLNode = {
+  def seek(list : SLLNode[Int], k : Int): SLLNode[Int] = {
     var node = list
     var i : Int = 1
-    var candidate : SLLNode = null
+    var candidate : SLLNode[Int] = null
     while(node != null) {
       node = node.next
 
