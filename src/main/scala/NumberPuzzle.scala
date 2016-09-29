@@ -9,7 +9,7 @@ object NumberPuzzle {
 
     for(i <- 0 until 9) {
       for (i <- 0 until 9) {
-        //@todo need implements
+        //@todo 回溯，八皇后问题
       }
     }
   }

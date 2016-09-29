@@ -13,7 +13,7 @@ object JosephProblem {
     val m = 1
 
 
-    //todo: 需要理解
+    //todo: 模运算
   }
 }
 
