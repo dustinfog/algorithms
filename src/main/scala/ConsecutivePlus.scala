@@ -8,7 +8,5 @@ object ConsecutivePlus {
    print(plusConsecutively(10))
  }
 
- def plusConsecutively(n : Int) : Int = {
-   (n + n * n) >> 1
- }
+ def plusConsecutively(n : Int) : Int = n + plusConsecutively(n - 1)
 }
