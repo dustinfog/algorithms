@@ -9,14 +9,14 @@
   */
 object NumberSeriesWithSumM {
   def main(args: Array[String]): Unit = {
-    for(res <- find(5, 13)) {
+    for(res <- find(5, 14)) {
       println(res)
     }
   }
 
   def find(n : Int, m : Int) : List[List[Int]] = {
     var ret:List[List[Int]] = Nil
-    for (i <- 2 until n) {
+    for (i <- 2 until n if m >= (i + 1) * i / 2) {
       ret = findK(i, 1, n, m) ::: ret
     }
 
