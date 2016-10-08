@@ -11,14 +11,21 @@ object StrRotateLeft {
 
     val chars : Array[Char] = "abcdef".toCharArray
 
-    rotate(chars, 2)
+    rotate(chars, 4)
 
     print(String.valueOf(chars))
   }
 
   def rotate(chars : Array[Char], n : Int): Unit = {
-    for (i <- n until chars.length) {
-      ArrayUtil.exchange(chars, i, i - n)
+    if (n <= chars.length / 2) {
+      for (i <- n until chars.length) {
+        ArrayUtil.exchange(chars, i, i - n)
+      }
+    } else {
+      val tailN = chars.length - n
+      for (i <- 0 until n reverse) {
+        ArrayUtil.exchange(chars, i, i + tailN)
+      }
     }
   }
 }
