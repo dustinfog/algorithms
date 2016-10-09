@@ -11,16 +11,20 @@
 object Fibonacci {
   def main(args: Array[String]): Unit = {
     val n = 4
+    println(calculate(n))
+  }
+
+  def calculate(n : Int) : Int = {
     var res : Int = 0
-    var prepre = 0
-    var pre = 1
-    for (i <- 2 until n + 1) {
+    var prepre = 1
+    var pre = 2
+    for (i <- 3 to n) {
       res = pre + prepre
       prepre = pre
       pre = res
     }
 
-    println(res)
+    res
   }
 
   //todo: 矩阵运算
