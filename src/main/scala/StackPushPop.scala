@@ -22,19 +22,21 @@ object StackPushPop {
     var pushIndex: Int = 0
     var continue = true
     while (continue) if (stack.nonEmpty && stack.head == pop(popIndex)) {
-        stack = stack.tail
+      stack = stack.tail
+      popIndex += 1
+    } else {
+      while (pushIndex < push.length && push(pushIndex) != pop(popIndex)) {
+        stack ::= push(pushIndex)
+        pushIndex += 1
+      }
+      if (pushIndex < push.length && push(pushIndex) == pop(popIndex)) {
+        pushIndex += 1
         popIndex += 1
-      } else if (pushIndex < push.length) {
-        if (push(pushIndex) == pop(popIndex)) {
-          pushIndex += 1
-          popIndex += 1
-        } else {
-          stack ::= push(pushIndex)
-          pushIndex += 1
-        }
       } else {
         continue = false
       }
+    }
+
     stack.isEmpty && popIndex == pop.length
   } else {
     false
