@@ -13,22 +13,30 @@
   */
 object StackPushPop {
   def main(args: Array[String]): Unit = {
-    println(check(Array[Int](1, 2, 3, 4, 5), Array[Int](5, 4, 3, 2, 1)))
+    println(check(Array[Int](1, 2, 3, 4, 5), Array[Int](4, 5, 3, 2, 1)))
   }
 
-  def check[T](push : Array[T], pop : Array[T]) : Boolean = {
-    var popIndex : Int = 0
-    var pushIndex : Int = 0
-
-    do {
-      if (push(pushIndex) != pop(popIndex)) {
-        pushIndex += 1
-      } else {
-        pushIndex -= 1
+  def check[T](push: Array[T], pop: Array[T]): Boolean = if (push.length == pop.length) {
+    var stack: List[T] = Nil
+    var popIndex: Int = 0
+    var pushIndex: Int = 0
+    var continue = true
+    while (continue) if (stack.nonEmpty && stack.head == pop(popIndex)) {
+        stack = stack.tail
         popIndex += 1
+      } else if (pushIndex < push.length) {
+        if (push(pushIndex) == pop(popIndex)) {
+          pushIndex += 1
+          popIndex += 1
+        } else {
+          stack ::= push(pushIndex)
+          pushIndex += 1
+        }
+      } else {
+        continue = false
       }
-    } while (popIndex < pop.length && pushIndex >= 0)
-
-    popIndex == pop.length - 1 && pushIndex == 0
+    stack.isEmpty && popIndex == pop.length
+  } else {
+    false
   }
 }
