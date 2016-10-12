@@ -40,10 +40,4 @@ object CountDecimalOnes {
   }
 
   def getMagnitude(n : Int): Int = Math.log10(n).toInt
-
-//  f(1) = 1
-//  f(2) =
-//    1 位数 1
-//  2 位数 10~19 10个十位数的1 + 9个个位数的1 20
-//  3 位数 100~199 100个百位数的1 + 9个两位数的1 ()
 }
